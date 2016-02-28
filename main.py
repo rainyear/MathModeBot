@@ -14,13 +14,11 @@ global bot
 bot = telegram.Bot(token='205078009:AAE972IeXUB9Ay4easvMN4ABMTmfXCYf4xA')
 botName = "@MathModeBot"
 
-
 @app.route("/", methods=["POST", "GET"])
 def setWebhook():
     if request.method == "GET":
         logging.info("Hello, Telegram!")
         return "OK, Telegram Bot!"
-
 @app.route("/set_webhook_mathmode", methods=['GET'])
 def setWebHookMathMode():
     s = bot.setWebhook("{}/mathmode".format(HOST))
@@ -28,7 +26,6 @@ def setWebHookMathMode():
         return "{} WebHook Setup OK!".format(botName)
     else:
         return "{} WebHook Setup Failed!".format(botName)
-
 @app.route("/mathmode", methods=["POST"])
 def mathmode():
     if request.method == "POST":
@@ -38,18 +35,6 @@ def mathmode():
         logging.info("Calling {}".format(update.message))
         handdle_message(update.message)
         return "ok"
-
-"""
-@app.route("/<token>", methods=["POST"])
-def mathmode(token):
-    if request.method == "POST":
-        update = telegram.Update.de_json(request.get_json(force=True))
-        logging.info("Calling {}".format(update.message))
-        handdle_message(update.message)
-        return "ok"
-    else:
-        return "Bye~"
-"""
 
 # MathMode
 def handdle_message(msg):
