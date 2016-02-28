@@ -13,6 +13,7 @@ botName = "@MathModeBot"
 
 @app.route("/")
 def setWebhook():
+    logging.info("Hello, Telegram!")
     return "OK, Telegram Bot!"
 
 @app.route("/<token>", methods=["POST"])
