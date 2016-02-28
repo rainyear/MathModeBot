@@ -68,7 +68,7 @@ def handdle_message(msg):
     elif "/tex" in text or "/latex" in text:
         query = parseCommand(text) or ["\Psi"]
         latex = parse.quote(" ".join(query))
-        bot.sendPhoto(chat_id=msg.chat.id, photo="http://latex.codecogs.com/svg.latex?{}".format(latex))
+        bot.sendPhoto(chat_id=msg.chat.id, photo="http://latex.codecogs.com/gif.latex?%5Cfn_phv%20%5CLARGE%20{}".format(latex))
     elif "/help" in text:
         helpInfo(msg)
     else:
