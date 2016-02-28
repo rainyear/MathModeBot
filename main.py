@@ -60,7 +60,7 @@ def handdle_message(msg):
     elif "/echo" in text:
         bot.sendDocument(chat_id=msg.chat.id, document="BQADBQADBQADPAsZA1QWNplWJQ03Ag")
     elif "/greek" in text:
-        helpInfo(msg)
+        bot.sendDocument(chat_id=msg.chat.id, document='AgADBQADv6cxGzwLGQNcPYQn0TV48JzvvTIABG-YPC7ADExKZ3oBAAEC')
     elif "/emoji" in text:
         query = parseCommand(text) or [""]
         results = os.popen("emoji-query {}".format(query[0]), mode='r')
@@ -68,7 +68,7 @@ def handdle_message(msg):
     elif "/tex" in text or "/latex" in text:
         query = parseCommand(text) or ["\Psi"]
         latex = parse.quote(" ".join(query))
-        bot.sendPhoto(chat_id=msg.chat.id, photo="http://latex.codecogs.com/gif.latex?%5Cfn_phv%20%5CLARGE%20{}".format(latex))
+        bot.sendPhoto(chat_id=msg.chat.id, photo="http://latex.codecogs.com/gif.latex?%5Chuge%20{}".format(latex))
     elif "/help" in text:
         helpInfo(msg)
     else:
