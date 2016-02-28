@@ -3,6 +3,7 @@ from flask import render_template, request
 import logging
 import telegram
 import os
+from urllib import parse
 
 HOST = "https://bot.rainy.im"
 app = Flask(__name__)
@@ -64,6 +65,10 @@ def handdle_message(msg):
         query = parseCommand(text) or [""]
         results = os.popen("emoji-query {}".format(query[0]), mode='r')
         sendTxtMsg(msg, "".join(results))
+    elif "/tex" in text or "/latex" in text:
+        query = parseCommand(text) or ["\Psi"]
+        latex = parse.quote(" ".join(query))
+        bot.sendPhoto(chat_id=msg.chat.id, photo="http://latex.codecogs.com/svg.latex?{}".format(latex))
     elif "/help" in text:
         helpInfo(msg)
     else:
@@ -74,6 +79,8 @@ def helpInfo(msg):
 /echo  - 嘿嘿嘿
 /emoji - emoji-query Command
 /greek - Return LaTex Greek Letters
+/latex
+/tex   - Convert LaTex to Image
 /help  - Help Info
 """
     sendTxtMsg(msg, text)
