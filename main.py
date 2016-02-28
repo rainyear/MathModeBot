@@ -54,6 +54,7 @@ def handdle_message(msg):
     text = msg.text
     if "/start" in text:
         bot.sendDocument(chat_id=msg.chat.id, document="BQADBQADBQADPAsZA1QWNplWJQ03Ag")
+        helpInfo(msg)
     elif "/echo" in text:
         bot.sendDocument(chat_id=msg.chat.id, document="BQADBQADBQADPAsZA1QWNplWJQ03Ag")
     elif "/greek" in text:
