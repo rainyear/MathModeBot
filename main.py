@@ -49,10 +49,13 @@ def mathmode(token):
         return "Bye~"
 """
 
+# MathMode
 def handdle_message(msg):
     text = msg.text
+    if "/start" in text:
+        bot.sendDocument(chat_id=msg.chat.id, document="BQADBQADBQADPAsZA1QWNplWJQ03Ag")
     if "/echo" in text:
-        helpInfo(msg)
+        bot.sendDocument(chat_id=msg.chat.id, document="BQADBQADBQADPAsZA1QWNplWJQ03Ag")
     if "/greek" in text:
         helpInfo(msg)
     if "/help" in text:
@@ -61,6 +64,7 @@ def handdle_message(msg):
         helpInfo(msg)
 def helpInfo(msg):
     text = ('/greek - Return LaTex Greek Letters\n'
+            '/echo  - 嘿嘿嘿\n'
             '/help  - Help Info')
     bot.sendMessage(chat_id=msg.chat.id, text=text)
 
