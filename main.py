@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template, request
 import logging
 import telegram
+import os
 
 HOST = "https://bot.rainy.im"
 app = Flask(__name__)
@@ -59,15 +60,26 @@ def handdle_message(msg):
         bot.sendDocument(chat_id=msg.chat.id, document="BQADBQADBQADPAsZA1QWNplWJQ03Ag")
     elif "/greek" in text:
         helpInfo(msg)
+    elif "/emoji" in text:
+        query = parseCommand(text)
+        results = os.popen(results, mode='r')
+        sendTxtMsg(msg, "".join(results))
     elif "/help" in text:
         helpInfo(msg)
     else:
         helpInfo(msg)
+
 def helpInfo(msg):
     text = ('/greek - Return LaTex Greek Letters\n'
             '/echo  - 嘿嘿嘿\n'
             '/help  - Help Info')
+    sendTxtMsg(msg, text)
+def sendTxtMsg(msg, text):
     bot.sendMessage(chat_id=msg.chat.id, text=text)
-
+def parseCommand(command):
+    params = command.split(" ")
+    if len(params) == 1:
+        return None
+    return params[1:]
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080)
