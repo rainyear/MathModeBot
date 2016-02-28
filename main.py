@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 global bot
-bot = telegram.Bot(token='205078009:AAE972IeXUB9Ay4easvMN4ABMTmfXCYf4xA')
+bot = telegram.Bot(token='TOKEN')
 botName = "@MathModeBot"
 
 @app.route("/", methods=["POST", "GET"])
