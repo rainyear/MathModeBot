@@ -21,7 +21,7 @@ def mathmode(token):
     if request.method == "POST":
         update = telegram.Update.de_json(request.get_json(force=True))
         logging.info("Calling {}".format(update.message))
-        haddle_message(update.message)
+        handdle_message(update.message)
         return "ok"
     else:
         return "Bye~"
