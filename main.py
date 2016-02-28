@@ -17,6 +17,7 @@ def setWebhook():
 
 @app.route("/<token>", methods=["POST"])
 def mathmode(token):
+    print(token)
     if request.method == "POST":
         update = telegram.Update.de_json(request.get_json(force=True))
         logging.info("Calling {}".format(update.message))
