@@ -11,14 +11,19 @@ global bot
 bot = telegram.Bot(token='205078009:AAE972IeXUB9Ay4easvMN4ABMTmfXCYf4xA')
 botName = "@MathModeBot"
 
-@app.route("/")
+@app.route("/", methods=["POST", "GET"])
 def setWebhook():
-    logging.info("Hello, Telegram!")
-    return "OK, Telegram Bot!"
+    if request.method == "GET":
+        logging.info("Hello, Telegram!")
+        return "OK, Telegram Bot!"
+    elif request.method == "POST":
+        update = telegram.Update.de_json(request.get_json(force=True))
+        logging.info("Calling {}".format(update.message))
+        handdle_message(update.message)
+        return "ok"
 
 @app.route("/<token>", methods=["POST"])
 def mathmode(token):
-    print(token)
     if request.method == "POST":
         update = telegram.Update.de_json(request.get_json(force=True))
         logging.info("Calling {}".format(update.message))
