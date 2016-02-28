@@ -79,7 +79,6 @@ def helpInfo(msg):
 /echo  - 嘿嘿嘿
 /emoji - emoji-query Command
 /greek - Return LaTex Greek Letters
-/latex
 /tex   - Convert LaTex to Image
 /help  - Help Info
 """
