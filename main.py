@@ -62,7 +62,7 @@ def handdle_message(msg):
         helpInfo(msg)
     elif "/emoji" in text:
         query = parseCommand(text)
-        results = os.popen(results, mode='r')
+        results = os.popen("emoji-query {}".format(query[0]), mode='r')
         sendTxtMsg(msg, "".join(results))
     elif "/help" in text:
         helpInfo(msg)
