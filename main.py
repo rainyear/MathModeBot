@@ -28,10 +28,10 @@ def mathmode(token):
 def handdle_message(msg):
     text = msg.text
     if "/echo" in text:
-        pass
+        helpInfo(msg)
     if "/greek" in text:
-        pass
-    if "/help" in text or "/h" == text:
+        helpInfo(msg)
+    if "/help" in text:
         helpInfo(msg)
     else:
         helpInfo(msg)
