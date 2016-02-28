@@ -70,9 +70,12 @@ def handdle_message(msg):
         helpInfo(msg)
 
 def helpInfo(msg):
-    text = ('/greek - Return LaTex Greek Letters\n'
-            '/echo  - 嘿嘿嘿\n'
-            '/help  - Help Info')
+    text ="""
+/echo  - 嘿嘿嘿
+/emoji - emoji-query Command
+/greek - Return LaTex Greek Letters
+/help  - Help Info
+"""
     sendTxtMsg(msg, text)
 def sendTxtMsg(msg, text):
     bot.sendMessage(chat_id=msg.chat.id, text=text)
